@@ -9,10 +9,11 @@ void flash() //LED를 깜빡이는 동작을 수행하는 함수
   static boolean output = HIGH;
   
   digitalWrite(led_pin, output); //연결된 핀에 output값 출력 >>> LED의 상태 제어
-  output = !output; //변수의 값 반전 >>> LED의 다음 상태를 결정
 
-  Serial.print("interrupt: "); // 시리얼 모니터에 출력
+  Serial.print("LED: "); // 시리얼 모니터에 출력
   Serial.println(output); // LED 상태 출력
+  
+  output = !output; //변수의 값 반전 >>> LED의 다음 상태를 결정
 }
 
 void setup()
