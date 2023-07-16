@@ -1,0 +1,29 @@
+#define _CRT_SECURE_NO_WARNINGS 
+#include <stdio.h>
+#define _USE_MATH_DEFINES
+#include <math.h>
+
+void main() 
+{
+    double x = 0, y = 0;
+    double a;  
+    double rad;  
+    double new_X, new_Y; 
+
+    printf("xÁÂÇ¥: ");
+    scanf("%lf", &x);
+
+    printf("yÁÂÇ¥: ");
+    scanf("%lf", &y);
+
+    printf("È¸Àü °¢µµ: ");
+    scanf("%lf", &a);
+
+    rad = a * M_PI / 180.0;
+
+    new_X = x * cos(rad) - y * sin(rad);
+    new_Y = x * sin(rad) + y * cos(rad);
+
+
+    printf("º¯È¯µÈ ÁÂÇ¥: (%.2lf, %.2lf)\n", new_X, new_Y);
+}
