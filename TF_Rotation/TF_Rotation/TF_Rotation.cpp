@@ -54,10 +54,6 @@ void TF_base_link_base_link_map()
     base_link_map_Point2D.x = Rotation_matrix[0][0] * base_link_Point2D.x + Rotation_matrix[0][1] * base_link_Point2D.y;
     base_link_map_Point2D.y = Rotation_matrix[1][0] * base_link_Point2D.x + Rotation_matrix[1][1] * base_link_Point2D.y;
 
-    base_link_map_Point2D.x -= base_link_origin.x;
-    base_link_map_Point2D.y -= base_link_origin.y;
-    
-
     printf("%6.3lf  %6.3lf\n", Rotation_matrix[0][0], Rotation_matrix[0][1]);
     printf("%6.3lf  %6.3lf\n", Rotation_matrix[1][0], Rotation_matrix[1][1]);
     printf("--------------------------\n");
@@ -68,13 +64,8 @@ void TF_base_link_map_link_base()
 {
     set_rotation_matrix_inverse(angle_degree);
 
-    
-
     base_link_map_Point2D.x = Rotation_matrix_inverse[0][0] * base_link_Point2D.x + Rotation_matrix_inverse[0][1] * base_link_Point2D.y;
     base_link_map_Point2D.y = Rotation_matrix_inverse[1][0] * base_link_Point2D.x + Rotation_matrix_inverse[1][1] * base_link_Point2D.y;
-    
-    base_link_map_Point2D.x -= base_link_origin.y;
-    base_link_map_Point2D.y -= base_link_origin.x;
 
     printf("%6.3lf  %6.3lf\n", Rotation_matrix_inverse[0][0], Rotation_matrix_inverse[0][1]);
     printf("%6.3lf  %6.3lf\n", Rotation_matrix_inverse[1][0], Rotation_matrix_inverse[1][1]);
