@@ -24,10 +24,12 @@ void Encoder()
 
   encoderB = digitalRead(EncoderBPin);
 
-  if (encoderB == LOW) {    // ccw
+  if (encoderB == LOW) 
+  {
     counter++;
   }
-  else {                    // cw
+  else 
+  {                 
     counter--;
   }
   time_old = current_time;
