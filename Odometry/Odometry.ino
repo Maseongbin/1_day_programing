@@ -1,7 +1,7 @@
-#include <NewPing.h>
+
 #include <LSM303.h>
 #include <Wire.h>
-#include <math.h>
+
 
 
 #define EncoderAPin 2
