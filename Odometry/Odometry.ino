@@ -2,7 +2,7 @@
 #define EncoderAPin 2
 #define EncoderBPin 3
 
-const unsigned long width = 100; // 100 ms (10 Hz)
+const unsigned long width = 100; 
 
 volatile int counter = 0;
 
