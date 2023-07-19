@@ -2,11 +2,11 @@
 #include <LSM303.h>
 #include <Wire.h>
 
-
-
 #define EncoderAPin 2
 #define EncoderBPin 3
 #define pulse2_m 0.000488
+
+LSM303 compass;
 
 const unsigned long width = 100; 
 
