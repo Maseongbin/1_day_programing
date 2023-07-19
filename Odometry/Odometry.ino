@@ -1,3 +1,4 @@
+#include <NewPing.h>
 
 #define EncoderAPin 2
 #define EncoderBPin 3
