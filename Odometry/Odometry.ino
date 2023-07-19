@@ -68,8 +68,6 @@ void loop()
 
   if (current_Millis - previous_Millis >= width)
   {
-   
-
     previous_Millis = current_Millis;
   }
 
