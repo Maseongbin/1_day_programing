@@ -44,6 +44,10 @@ void setup()
 {
   Serial.begin(115200);
 
+  pinMode(EncoderAPin, INPUT_PULLUP);
+  pinMode(EncoderBPin, INPUT_PULLUP);
+
+  attachInterrupt(digitalPinToInterrupt(EncoderAPin), Encoder, RISING);
   
   Wire.begin(); //IMU initiallize
   compass.init();
@@ -56,11 +60,6 @@ void setup()
   */
   compass.m_min = (LSM303::vector<int16_t>){-32767, -32767, -32767};
   compass.m_max = (LSM303::vector<int16_t>){+32767, +32767, +32767};
-  
-  pinMode(EncoderAPin, INPUT_PULLUP);
-  pinMode(EncoderBPin, INPUT_PULLUP);
-
-  attachInterrupt(digitalPinToInterrupt(EncoderAPin), Encoder, RISING);
 }
 
 void loop()
