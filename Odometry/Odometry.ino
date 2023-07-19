@@ -1,6 +1,7 @@
 
 #define EncoderAPin 2
 #define EncoderBPin 3
+#define pulse2_m 0.000488
 
 const unsigned long width = 100; 
 
