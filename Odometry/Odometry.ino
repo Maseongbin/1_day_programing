@@ -55,7 +55,7 @@ void loop()
 
   Serial.print("Pulse_counter: "); 
   Serial.println(counter);
-  Serial.print("Wheel_trick: "); 
-  Serial.println((counter * pulse2m));
+  Serial.print("Wheel_tick: "); 
+  Serial.println();
 
 }
