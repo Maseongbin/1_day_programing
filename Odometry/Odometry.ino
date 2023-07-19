@@ -5,20 +5,21 @@
 const unsigned long width = 100; // 100 ms (10 Hz)
 
 volatile int counter = 0;
+
 volatile int encoderB;
 
 double angle = 0.0;
 
-unsigned long enc_time;
-unsigned long enc_time_old;
-unsigned long enc_time_diff;
+unsigned long current_time;
+unsigned long time_old;
+unsigned long time_different;
 
 unsigned long previous_Millis = 0;
 
 void Encoder()
 {
-  enc_time = millis();
-  enc_time_diff = enc_time - enc_time_old;
+  current_time = millis();
+  time_different = current_time - time_old;
 
   encoderB = digitalRead(EncoderBPin);
 
@@ -28,7 +29,7 @@ void Encoder()
   else {                    // cw
     counter--;
   }
-  enc_time_old = enc_time;
+  time_old = current_time;
 }
 
 void setup()
@@ -39,7 +40,6 @@ void setup()
   pinMode(EncoderBPin, INPUT_PULLUP);
 
   attachInterrupt(digitalPinToInterrupt(EncoderAPin), Encoder, RISING);
-
 }
 
 void loop()
@@ -52,8 +52,10 @@ void loop()
 
     previous_Millis = current_Millis;
   }
-  Serial.print("Heading_Angle = "); Serial.println(mpu6050.getAngleZ());
-  Serial.print("Pulse_counter: "); Serial.println(counter);
-  Serial.print("Wheel_trick: "); Serial.println((counter * pulse2m));
+
+  Serial.print("Pulse_counter: "); 
+  Serial.println(counter);
+  Serial.print("Wheel_trick: "); 
+  Serial.println((counter * pulse2m));
 
 }
