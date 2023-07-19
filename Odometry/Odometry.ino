@@ -43,7 +43,20 @@ void Encoder()
 void setup()
 {
   Serial.begin(115200);
- 
+
+  
+  Wire.begin(); //IMU initiallize
+  compass.init();
+  compass.enableDefault();
+
+   /*
+  Calibration values; the default values of +/-32767 for each axis
+  lead to an assumed magnetometer bias of 0. Use the Calibrate example
+  program to determine appropriate values for your particular unit.
+  */
+  compass.m_min = (LSM303::vector<int16_t>){-32767, -32767, -32767};
+  compass.m_max = (LSM303::vector<int16_t>){+32767, +32767, +32767};
+  
   pinMode(EncoderAPin, INPUT_PULLUP);
   pinMode(EncoderBPin, INPUT_PULLUP);
 
